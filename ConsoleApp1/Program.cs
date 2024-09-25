@@ -64,8 +64,6 @@ class Game
 
         static void difficultySelection(ref float difficultyMultiplier, ref string realName, ref string playerName)
         {
-
-            shortPause();
             if (playerLevel > 1)
             {
                 Console.Clear();
@@ -101,19 +99,19 @@ class Game
         static void battle(ref string playerName, ref float difficultyMultiplier)
         {
             Random Enemy = new Random();
-            randomEnemy = Enemy.Next(1, 5);
+            randomEnemy = Enemy.Next(1, 11);
             switch (randomEnemy)
             {
-                case 1:
+                case < 3:
                     gnome();
                     break;
-                case 2:
+                case < 6:
                     mermaid();
                     break;
-                case 3:
+                case < 11:
                     Phoenix();
                     break;
-                case 4:
+                default:
                     Dragon();
                     break;
             }
@@ -539,11 +537,6 @@ class Game
         {
             Console.WriteLine(message);
             return Console.ReadLine() ?? "Unknown";
-        }
-
-        static void shortPause()
-        {
-            Thread.Sleep(500);
         }
     }
 
